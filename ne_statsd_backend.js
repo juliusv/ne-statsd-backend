@@ -38,7 +38,7 @@ StatsdBackend.prototype.flush = function(time_stamp, metrics) {
 
 StatsdBackend.prototype.addMetricValue = function(key, value) {
   var self = this;
-  value = ":" + value;
+  value = ':' + value;
 
   // Do we already have an array of metrics lines for this key? Otherwise,
   // create one.
@@ -80,8 +80,8 @@ StatsdBackend.prototype.sendMetrics = function() {
       // TODO(julius): Fix edge-case where the line fits exactly into the MTU
       // (and with newline it doesn't fit anymore). Right now the datagram
       // would simply be 1 byte too big and could get lost.
-      var dgram_part = metric_lines[i] + "\n";
-      self.addToStringListSplitByMTU(dgrams, dgram_part, "");
+      var dgram_part = metric_lines[i] + '\n';
+      self.addToStringListSplitByMTU(dgrams, dgram_part, '');
     }
   }
 
@@ -89,9 +89,9 @@ StatsdBackend.prototype.sendMetrics = function() {
     var dgram = dgrams[i];
     var data = new Buffer(dgram);
     self.socket.send(data, 0, data.length, self.config.port, self.config.host, function(error, bytes) {
-      console.log("Sent " + bytes + " bytes to " + self.config.host + ":" + self.config.port);
+      console.log('Sent ' + bytes + ' bytes to ' + self.config.host + ':' + self.config.port);
       if (error) {
-        console.log("Error while sending to remote statsd: " + error);
+        console.log('Error while sending to remote statsd: ' + error);
       }
     });
   }
