@@ -1,0 +1,16 @@
+{
+  "name": "efficient-statsd-backend",
+  "version": "0.1.0",
+  "description": "A network-efficient backend for StatsD which preaggregates and sends metrics to another statsd",
+  "main": "statsd_backend.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juliusv/efficient-statsd-backend.git"
+  },
+  "keywords": [
+    "statsd",
+    "statsd-backend",
+  ],
+  "author": "Julius Volz <julius.volz@gmail.com>",
+  "license": "MIT"
+}
