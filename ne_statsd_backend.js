@@ -98,6 +98,18 @@ StatsdBackend.prototype.sendMetrics = function() {
 };
 
 exports.init = function(startupTime, config, events) {
+  if (!config.statsdBackend) {
+    util.log('ne-statsd-backend: requires "statsdBackend" configuration section');
+    return false;
+  }
+  if (!config.statsdBackend.host) {
+    util.log('ne-statsd-backend: requires "statsdBackend.host" option');
+    return false;
+  }
+  if (!config.statsdBackend.port) {
+    util.log('ne-statsd-backend: requires "statsdBackend.port" option');
+    return false;
+  }
   var instance = new StatsdBackend(startupTime, config, events);
   return true;
 };
