@@ -1,8 +1,7 @@
 require "fileutils"
 
 NE_STATSD_BACKEND_VERSION = '0.1.0'
-RELEASE_PREFIX = '1soundcloud'
-RELEASE = RELEASE_PREFIX + (ENV['BUILD_NUMBER'] || 'XXXXX')
+RELEASE = (ENV['BUILD_NUMBER'] || 'XXXXX')
 
 task :default do
   puts "Please run rake -T to get a listing of available tasks."
